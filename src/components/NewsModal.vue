@@ -4,7 +4,7 @@
       <div class="bg-white rounded-lg shadow-xl p-6 m-4 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
         <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold" @click="closeModal">&times;</button>
         <div v-if="news" class="text-left">
-          <img :src="news.image" :alt="news.title" class="w-full h-64 object-cover rounded-lg mb-6">
+          <img :src="news.image" :alt="news.title" class="w-full h-64 object-cover rounded-lg mb-6" width="455" height="256">
           <p class="text-sm text-gray-500 mb-2">{{ news.date }}</p>
           <h2 class="text-3xl font-bold text-gray-800 mb-4">{{ news.title }}</h2>
           <p class="text-lg text-gray-700 leading-relaxed mb-4">{{ news.fullContent }}</p>

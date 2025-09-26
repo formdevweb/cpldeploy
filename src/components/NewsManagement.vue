@@ -46,7 +46,7 @@
                 accept="image/*"
                 class="w-full p-3 border-2 border-gray-200 rounded-lg text-black focus:border-blue-500 transition-colors duration-300 shadow-sm focus:shadow-md"
               />
-              <img v-if="formModel.image" :src="formModel.image" alt="Aperçu de l'image" class="mt-4 w-full h-auto rounded-lg shadow-md">
+              <img v-if="formModel.image" :src="formModel.image" alt="Aperçu de l'image" class="mt-4 w-full h-auto rounded-lg shadow-md" width="341" height="192">
             </div>
             <div class="mb-4">
               <label

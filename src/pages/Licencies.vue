@@ -229,7 +229,7 @@
               <label for="photo" class="block text-gray-700 font-semibold mb-2">Photo</label>
               <input type="file" @change="onFileChange" id="photo"
                 class="w-full p-3 border-2 border-gray-200 rounded-lg text-black focus:border-blue-500 transition-colors duration-300">
-              <img v-if="formModel.photo" :src="formModel.photo" class="mt-4 w-32 h-32 object-cover rounded-lg">
+              <img v-if="formModel.photo" :src="formModel.photo" class="mt-4 w-32 h-32 object-cover rounded-lg" width="128" height="128">
             </div>
           </div>
           <div class="flex flex-col sm:flex-row mt-6 gap-4"
