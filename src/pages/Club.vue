@@ -41,7 +41,11 @@
           </div>
         </div>
         <div class="md:w-5/12 flex flex-col items-center md:ml-8 z-10" data-aos="fade-left">
-          <img :src="plaqueImage" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in">
+          <picture>
+  <source :srcset="plaqueImage" type="image/webp">
+  <source srcset="../assets/plaque.png" type="image/png">
+  <img :src="plaqueImage" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in" loading="lazy">
+</picture>
           <p class="text-base mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="400">Plaque commémorative du Club Pongiste Libercourtois</p>
         </div>
       </div>
@@ -177,7 +181,11 @@
           <Carousel :items-to-show="1" :wrap-around="true" class="shadow-xl rounded-lg">
             <Slide v-for="(image, index) in carouselImages" :key="index">
               <div class="h-128">
-                <img :src="image" :alt="'Installation ' + (index + 1)" class="rounded-lg w-full h-full object-cover">
+                <picture>
+  <source :srcset="image" type="image/webp">
+  <source :srcset="image.replace('.webp', '.jpg')" type="image/jpeg">
+  <img :src="image" :alt="'Installation ' + (index + 1)" class="rounded-lg w-full h-full object-cover" loading="lazy">
+</picture>
               </div>
             </Slide>
 
@@ -258,12 +266,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import plaqueImage from '../assets/plaque.png'
+import plaqueImage from '../assets/plaque.webp'
 import socialImage from '../assets/social.jpg'
-import installationImage1 from '../assets/installation1.jpg'
-import installationImage2 from '../assets/installation2.jpg'
-import installationImage3 from '../assets/installation3.jpg'
-import installationImage4 from '../assets/installation4.jpg'
+import installationImage1 from '../assets/installation1.webp'
+import installationImage2 from '../assets/installation2.webp'
+import installationImage3 from '../assets/installation3.webp'
+import installationImage4 from '../assets/installation4.webp'
 import ValuesModal from '../components/ValuesModal.vue'
 
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'

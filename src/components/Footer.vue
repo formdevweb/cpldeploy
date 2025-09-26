@@ -87,7 +87,11 @@ const copyPhoneNumber = async (phoneNumber) => {
             </a>
           </div>
           <div class="mt-6">
-            <img src="/src/assets/social.jpg" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" />
+            <picture>
+  <source srcset="/src/assets/social.webp" type="image/webp">
+  <source srcset="/src/assets/social.jpg" type="image/jpeg">
+  <img src="/src/assets/social.jpg" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" />
+</picture>
           </div>
         </div>
 

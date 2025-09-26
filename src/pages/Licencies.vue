@@ -159,7 +159,7 @@
             <span class="text-xl">{{ licencie.gender === 'Homme' ? '♂️' : '♀️' }}</span>
           </div>
           <div class="relative mb-5">
-            <img v-if="licencie.photo" :src="licencie.photo" class="w-28 h-28 rounded-full object-cover ring-4 ring-blue-300 ring-offset-2">
+            <img v-if="licencie.photo" :src="licencie.photo" class="w-28 h-28 rounded-full object-cover ring-4 ring-blue-300 ring-offset-2" loading="lazy">
             <div v-else class="w-28 h-28 rounded-full flex items-center justify-center text-white font-bold text-3xl ring-4 ring-blue-300 ring-offset-2"
               :class="getRankColor(licencie.rank)">
               {{ licencie.rank }}

@@ -14,7 +14,10 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="news in allNews" :key="news.id" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer" @click="openNewsModal(news)">
-          <img :src="news.image" :alt="news.title" class="w-full h-48 object-cover">
+          <picture>
+  <source :srcset="newsItem.image.replace(/\.(jpg|jpeg|png)$/, '.webp')" type="image/webp">
+  <img :src="newsItem.image" :alt="newsItem.title" class="w-full h-48 object-cover" loading="lazy">
+</picture>
           <div class="p-6 text-left">
             <p class="text-sm text-gray-500 mb-2">{{ formatDate(news.date) }}</p>
             <h3 class="text-xl font-semibold text-gray-800 mb-3">{{ news.title }}</h3>

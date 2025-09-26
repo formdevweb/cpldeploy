@@ -2,7 +2,7 @@
 import ActivitiesSection from '../components/ActivitiesSection.vue'
 import UpcomingEvents from '../components/UpcomingEvents.vue'
 import NewsSection from '../components/NewsSection.vue'
-import heroImage from '../assets/hero.jpg'
+
 import { onMounted, ref } from 'vue' // Import onMounted and ref
 import canvasConfetti from 'canvas-confetti' // Import canvas-confetti
 import axios from 'axios'; // Import axios
@@ -35,7 +35,7 @@ onMounted(async () => {
 
 <template>
   <div class="bg-gray-100">
-    <section class="relative bg-cover bg-center py-20 md:min-h-screen text-white flex items-center justify-center" :style="{ backgroundImage: `url(${heroImage})`, backgroundAttachment: 'fixed' }">
+    <section class="hero-section relative bg-cover bg-center py-20 md:min-h-screen text-white flex items-center justify-center">
       <div class="absolute inset-0 bg-black opacity-40"></div>
       <div class="container mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center h-full">        <h1 class="text-5xl font-extrabold mb-4 text-brand-gold text-shadow-sm">Rejoignez une communauté passionnée</h1>
         <p class="text-xl mb-8 max-w-3xl mx-auto text-shadow-sm">
@@ -61,6 +61,11 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.hero-section {
+  background-image: url('../assets/hero.webp'); /* WebP version */
+  background-image: url('../assets/hero.jpg');  /* JPG fallback */
+  background-attachment: fixed;
+}
 </style>
 
 

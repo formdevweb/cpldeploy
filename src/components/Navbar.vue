@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
-import logoUrl from '../assets/logo-club (1).png'
+import logoUrl from '../assets/logo-club (1).webp'
 import { store } from '../store'
 
 const logout = () => {
@@ -142,7 +142,11 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
         <!-- Left: Logo -->
         <RouterLink to="/" class="group flex items-center gap-3">
           <div class="rounded-full ring-0 ring-transparent transition group-hover:ring-1 group-hover:ring-[var(--accent)]/60">
-            <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" />
+            <picture>
+  <source :srcset="logoUrl" type="image/webp">
+  <source srcset="../assets/logo-club (1).png" type="image/png">
+  <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" />
+</picture>
           </div>
           <span class="sr-only">Accueil</span>
         </RouterLink>
@@ -196,7 +200,11 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
     >
       <div ref="mobileMenuRef" v-show="isMenuOpen" id="mobile-menu" role="dialog" aria-modal="true" class="fixed inset-0 z-50 bg-brand-neutral md:hidden p-8">
         <!-- Logo -->
-        <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" />
+        <picture>
+  <source :srcset="logoUrl" type="image/webp">
+  <source srcset="../assets/logo-club (1).png" type="image/png">
+  <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" />
+</picture>
 
         <!-- Close button -->
         <button ref="closeButtonRef" @click="isMenuOpen = false" class="absolute top-5 right-5 inline-flex items-center justify-center rounded-md border border-[var(--accent)] p-2 text-[var(--accent)] shadow-sm transition-colors duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] cursor-pointer">
