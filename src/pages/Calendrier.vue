@@ -377,6 +377,9 @@ const confirmDelete = async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/events/${formModel.value.id}`, {
       method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${store.token}`,
+      },
     });
     if (!response.ok) {
       const errorText = await response.text();
