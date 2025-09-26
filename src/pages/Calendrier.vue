@@ -335,6 +335,7 @@ const addEvent = async (eventData) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${store.token}`,
       },
       body: JSON.stringify({ ...eventData, date: eventData.date.toISOString() }), // Convert Date object to ISO string
     });
@@ -354,6 +355,7 @@ const updateEvent = async (eventData) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${store.token}`,
       },
       body: JSON.stringify({ ...eventData, date: eventData.date.toISOString() }), // Convert Date object to ISO string
     });
