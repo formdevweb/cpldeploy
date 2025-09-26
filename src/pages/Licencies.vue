@@ -367,6 +367,7 @@ const addMember = async () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${store.token}`,
       },
       body: JSON.stringify(formModel.value),
     });
@@ -382,8 +383,10 @@ const addMember = async () => {
 const updateMember = async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/licencies/${formModel.value.id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${store.token}`,
       },
       body: JSON.stringify(formModel.value),
     });
@@ -404,6 +407,9 @@ const confirmDelete = async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/licencies/${formModel.value.id}`, {
       method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${store.token}`,
+      },
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
