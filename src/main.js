@@ -5,9 +5,11 @@ import router from './router/index.js'
 import AOS from 'aos'
 import 'aos/dist/aos.css' // You can also use <link> for styles
 import axios from 'axios';
+import { store } from './store/index.js';
 
 const app = createApp(App)
 app.use(router)
+app.config.globalProperties.$store = store;
 app.mount('#app')
 
 AOS.init({

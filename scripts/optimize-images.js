@@ -14,11 +14,23 @@ async function optimizeImages() {
       const name = path.basename(file, ext);
 
       if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
-        const webpPath = path.join(assetsDir, `${name}.webp`);
-        console.log(`Converting ${file} to WebP...`);
+        const widths = [600, 1200, 1800]; // Define desired widths
+
+        for (const width of widths) {
+          const webpPath = path.join(assetsDir, `${name}-${width}w.webp`);
+          console.log(`Converting ${file} to WebP with width ${width}...`);
+          await sharp(filePath)
+            .resize(width) // Resize to the specified width
+            .webp({ quality: 80 }) // Adjust quality as needed
+            .toFile(webpPath);
+          console.log(`Converted ${file} to ${name}-${width}w.webp`);
+        }
+        // Also convert the original size to webp for cases where a specific width isn't matched
+        const originalWebpPath = path.join(assetsDir, `${name}.webp`);
+        console.log(`Converting ${file} to original size WebP...`);
         await sharp(filePath)
-          .webp({ quality: 80 }) // Adjust quality as needed
-          .toFile(webpPath);
+          .webp({ quality: 80 })
+          .toFile(originalWebpPath);
         console.log(`Converted ${file} to ${name}.webp`);
       }
     }

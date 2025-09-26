@@ -133,6 +133,11 @@ watch(isMenuOpen, (isOpen) => {
 
 let cleanup = null
 onBeforeUnmount(() => { if (cleanup) cleanup() })
+
+const getOptimizedImageSrcset = (baseName) => {
+  const widths = [600, 1200, 1800];
+  return widths.map(width => `/src/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
+};
 </script>
 
 <template>
@@ -143,10 +148,10 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
         <RouterLink to="/" class="group flex items-center gap-3">
           <div class="rounded-full ring-0 ring-transparent transition group-hover:ring-1 group-hover:ring-[var(--accent)]/60">
             <picture>
-  <source :srcset="logoUrl" type="image/webp">
-  <source srcset="../assets/logo-club.png" type="image/png">
-  <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" width="56" height="56" />
-</picture>
+              <source :srcset="getOptimizedImageSrcset('logo-club')" sizes="56px" type="image/webp">
+              <source srcset="../assets/logo-club.png" type="image/png">
+              <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" width="56" height="56" />
+            </picture>
           </div>
           <span class="sr-only">Accueil</span>
         </RouterLink>
@@ -201,10 +206,10 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
       <div ref="mobileMenuRef" v-show="isMenuOpen" id="mobile-menu" role="dialog" aria-modal="true" class="fixed inset-0 z-50 bg-brand-neutral md:hidden p-8">
         <!-- Logo -->
         <picture>
-  <source :srcset="logoUrl" type="image/webp">
-  <source srcset="../assets/logo-club.png" type="image/png">
-  <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" width="56" height="56" />
-</picture>
+          <source :srcset="getOptimizedImageSrcset('logo-club')" sizes="56px" type="image/webp">
+          <source srcset="../assets/logo-club.png" type="image/png">
+          <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" width="56" height="56" />
+        </picture>
 
         <!-- Close button -->
         <button ref="closeButtonRef" @click="isMenuOpen = false" class="absolute top-5 right-5 inline-flex items-center justify-center rounded-md border border-[var(--accent)] p-2 text-[var(--accent)] shadow-sm transition-colors duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] cursor-pointer">
@@ -222,6 +227,9 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
             enter-active-class="transition-all duration-500"
             enter-from-class="opacity-0 translate-y-4"
             enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="transition-opacity duration-200 ease-in-out"
+            leave-from-class="opacity-100 translate-y-0"
+            leave-to-class="opacity-0"
             class="space-y-8 text-2xl text-white"
           >
             <li v-for="(item, i) in navItems" :key="item.label + '-m'" :style="{ 'transition-delay': `${i * 75}ms` }">
