@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Nouvelle palette (issue de l'image) */
+  --primary: #D64541;   /* Rouge légèrement plus sombre – CTA / éléments importants */
+  --accent: #1ABC9C;    /* Vert turquoise – accents/interactifs */
+  --accent-dark: #16A085; /* Slightly darker accent for hover */
+  --gold: #F1C40F;      /* Jaune doré – titres/séparateurs */
+  --neutral: #2C3E50;   /* Bleu nuit – arrière-plan */
+  --surface: #3F5D78;   /* Surface principale (plus claire que le header/footer) */
+
+  /* Mapping pour les utilitaires existants */
+  --brand-primary: var(--primary);
+  --brand-secondary: #ffffff; /* Texte sur fond neutre sombre */
+  --brand-accent: var(--accent);
+
+  /* Fonts (Option 3) */
+  --font-heading: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* Utilitaires de marque */
+.text-brand-primary { color: var(--brand-primary); }
+.bg-brand-primary { background-color: var(--brand-primary); }
+.border-brand-primary { border-color: var(--brand-primary); }
+
+.text-brand-secondary { color: var(--brand-secondary); }
+.bg-brand-accent { background-color: var(--brand-accent); }
+.border-brand-accent { border-color: var(--brand-accent); }
+
+/* Doré */
+.text-brand-gold { color: var(--gold); }
+.border-brand-gold { border-color: var(--gold); }
+
+/* Neutre */
+.bg-brand-neutral { background-color: var(--neutral); }
+.bg-brand-surface { background-color: var(--surface); }
+
+/* Cards translucides */
+.card {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  backdrop-filter: saturate(120%) blur(6px);
+}
+.card-header { border-bottom: 1px solid rgba(255,255,255,0.12); }
+.card-body { color: #ffffff; }
+
+.btn-primary {
+  background-color: var(--brand-accent);
+  color: #ffffff;
+}
+.btn-primary:hover { background-color: var(--primary); }
+.btn-primary:focus { outline: 2px solid var(--brand-primary); outline-offset: 2px; }
+
+.link-brand { color: #ffffff; }
+.link-brand:hover { color: var(--brand-accent); }
+
+/* Apply global fonts */
+body { font-family: var(--font-body); }
+h1, h2, h3, .heading { font-family: var(--font-heading); }
+
+/* Footer links */
+.footer-link { color: #ffffffcc; }
+.footer-link:hover { color: #ffffff; }
+.footer-link.active { color: var(--brand-accent); }
+
+/* Generic button font mapping using heading font site-wide */
+.btn { font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.01em; }
+
+/* Text Shadow Utilities */
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Hide scrollbar for horizontally scrollable elements */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
