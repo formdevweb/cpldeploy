@@ -152,12 +152,12 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
         </RouterLink>
 
         <!-- Center: Desktop menu -->
-        <ul :class="['hidden gap-4 text-sm font-medium text-gray-900 md:flex heading']">
+        <ul :class="['hidden gap-1 md:gap-2 lg:gap-1 text-xs md:text-sm lg:text-xs font-medium text-gray-900 md:flex heading']">
           <li v-for="(item, i) in navItems" :key="item.label">
             <RouterLink v-if="!(item.requiresAdmin && !store.isAdmin)" :to="item.to"
                @click.prevent="activeIndex = i; setActiveBySlug(item.slug)"
                :class="[
-                 'inline-block px-3 py-1 transition-all duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2',
+                 'inline-block px-1 py-1 md:px-2 lg:px-1 transition-all duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 whitespace-nowrap',
                  activeIndex === i
                    ? 'bg-[var(--accent)] text-white font-semibold border-b-2 border-[var(--primary)]'
                    : 'text-gray-900 hover:bg-[var(--accent-dark)] hover:text-white'

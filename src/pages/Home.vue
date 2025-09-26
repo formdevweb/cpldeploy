@@ -35,18 +35,18 @@ onMounted(async () => {
 
 <template>
   <div class="bg-gray-100">
-    <section class="hero-section relative bg-cover bg-center py-20 md:min-h-screen text-white flex items-center justify-center">
+    <section class="hero-section relative bg-cover bg-center py-12 sm:py-16 md:py-20 md:min-h-screen text-white flex items-center justify-center">
       <div class="absolute inset-0 bg-black opacity-40"></div>
-      <div class="container mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center h-full">        <h1 class="text-5xl font-extrabold mb-4 text-brand-gold text-shadow-sm">Rejoignez une communauté passionnée</h1>
-        <p class="text-xl mb-8 max-w-3xl mx-auto text-shadow-sm">
+      <div class="container mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center h-full">        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-brand-gold text-shadow-sm">Rejoignez une communauté passionnée</h1>
+        <p class="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-shadow-sm">
           Le Club Pongiste Libercourtois accueille les joueurs de tous âges et de tous niveaux.
           Découvrez le plaisir du tennis de table dans une ambiance conviviale et dynamique.
         </p>
-        <div class="mt-12 flex items-center justify-center gap-3">
-          <RouterLink :to="{ name: 'club' }" class="btn btn-primary rounded-md px-6 py-3 text-white shadow-sm transition transform hover:scale-105 duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-2">
+        <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <RouterLink :to="{ name: 'club' }" class="btn btn-primary rounded-md px-5 py-2 sm:px-6 sm:py-3 text-white shadow-sm transition transform hover:scale-105 duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--brand-accent)] focus:ring-offset-2 w-full sm:w-auto">
             Découvrir le club
           </RouterLink>
-          <RouterLink :to="{ name: 'horaires-tarifs' }" class="btn rounded-md border border-brand-accent px-6 py-3 text-brand-accent transition hover:bg-rose-600 hover:text-white">
+          <RouterLink :to="{ name: 'horaires-tarifs' }" class="btn rounded-md border border-brand-accent px-5 py-2 sm:px-6 sm:py-3 text-brand-accent transition hover:bg-rose-600 hover:text-white w-full sm:w-auto">
             Horaires & Tarifs
           </RouterLink>
         </div>

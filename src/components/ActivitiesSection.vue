@@ -99,9 +99,9 @@ onMounted(() => {
   <section ref="sectionRef" class="relative bg-white border border-gray-200 py-12 sm:py-16 lg:py-24 overflow-hidden">
     <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 sm:mb-16 lg:mb-20">
-        <h2 class="text-5xl font-extrabold text-center text-rose-600 mb-4 text-shadow-sm">Nos Activités</h2>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-rose-600 mb-4 text-shadow-sm">Nos Activités</h2>
         <div class="mx-auto mt-4 h-px w-24 bg-gradient-to-r from-[var(--primary)] via-[var(--gold)] to-[var(--accent)] opacity-80"></div>
-        <p class="mt-4 max-w-2xl mx-auto text-gray-700 text-xl leading-7 sm:leading-7 md:leading-8">
+        <p class="mt-4 max-w-2xl mx-auto text-gray-700 text-base sm:text-lg md:text-xl leading-7 sm:leading-7 md:leading-8">
           Du loisir à la compétition, découvrez des activités adaptées à chaque âge et niveau.
         </p>
       </div>
@@ -125,8 +125,8 @@ onMounted(() => {
             >
               <span class="select-none">{{ a.icon }}</span>
             </div>
-            <h3 class="mt-6 text-xl font-semibold text-gray-800">{{ a.title }}</h3>
-            <p class="mt-3 text-gray-600 leading-relaxed">
+            <h3 class="mt-6 text-lg sm:text-xl font-semibold text-gray-800">{{ a.title }}</h3>
+            <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
               {{ a.description }}
             </p>
             <div class="mt-6">
