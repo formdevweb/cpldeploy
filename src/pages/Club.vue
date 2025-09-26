@@ -44,7 +44,7 @@
           <picture>
   <source :srcset="plaqueImage" type="image/webp">
   <source srcset="../assets/plaque.png" type="image/png">
-  <img :src="plaqueImage" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in" loading="lazy">
+  <img :src="plaqueImage" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in" loading="lazy" width="600" height="450">
 </picture>
           <p class="text-base mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="400">Plaque commémorative du Club Pongiste Libercourtois</p>
         </div>
@@ -184,7 +184,7 @@
                 <picture>
   <source :srcset="image" type="image/webp">
   <source :srcset="image.replace('.webp', '.jpg')" type="image/jpeg">
-  <img :src="image" :alt="'Installation ' + (index + 1)" class="rounded-lg w-full h-full object-cover" loading="lazy">
+  <img :src="image" :alt="'Installation ' + (index + 1)" class="rounded-lg w-full h-full object-cover" loading="lazy" width="910" height="512">
 </picture>
               </div>
             </Slide>

@@ -145,7 +145,7 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
             <picture>
   <source :srcset="logoUrl" type="image/webp">
   <source srcset="../assets/logo-club.png" type="image/png">
-  <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" />
+  <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" width="56" height="56" />
 </picture>
           </div>
           <span class="sr-only">Accueil</span>
@@ -203,7 +203,7 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
         <picture>
   <source :srcset="logoUrl" type="image/webp">
   <source srcset="../assets/logo-club.png" type="image/png">
-  <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" />
+  <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" width="56" height="56" />
 </picture>
 
         <!-- Close button -->

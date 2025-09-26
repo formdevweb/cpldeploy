@@ -16,7 +16,7 @@
         <div v-for="news in allNews" :key="news.id" class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer" @click="openNewsModal(news)">
           <picture>
   <source :srcset="newsItem.image.replace(/\.(jpg|jpeg|png)$/, '.webp')" type="image/webp">
-  <img :src="newsItem.image" :alt="newsItem.title" class="w-full h-48 object-cover" loading="lazy">
+  <img :src="newsItem.image" :alt="newsItem.title" class="w-full h-48 object-cover" loading="lazy" width="341" height="192">
 </picture>
           <div class="p-6 text-left">
             <p class="text-sm text-gray-500 mb-2">{{ formatDate(news.date) }}</p>
