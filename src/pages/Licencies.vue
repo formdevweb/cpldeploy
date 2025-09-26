@@ -363,11 +363,12 @@ const fetchLicencies = async () => {
 
 const addMember = async () => {
   try {
+    const token = localStorage.getItem('token');
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/licencies`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${store.token}`,
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(formModel.value),
     });
