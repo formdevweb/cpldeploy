@@ -246,8 +246,8 @@ const getOptimizedImageSrcset = (baseName) => {
               </RouterLink>
             </li>
             
-            <li class="pt-8" :style="{ 'transition-delay': `${(navItems.length + 1) * 75}ms` }">
-                <RouterLink v-if="!store.isAdmin" to="/login" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md cursor-pointer">
+            <li class="pt-8" :key="'admin-button-li'" :style="{ 'transition-delay': `${(navItems.length + 1) * 75}ms` }">
+                <RouterLink v-if="!store.isAdmin" to="/login" @click="isMenuOpen = false" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md cursor-pointer">
                     Admin
                 </RouterLink>
                 <button v-else @click="logout()" class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer">
