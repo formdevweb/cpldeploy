@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
-import logoUrl from '../assets/logo-club.webp'
 import { store } from '../store'
 
 const logout = () => {
@@ -136,7 +135,7 @@ onBeforeUnmount(() => { if (cleanup) cleanup() })
 
 const getOptimizedImageSrcset = (baseName) => {
   const widths = [600, 1200, 1800];
-  return widths.map(width => `/src/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
+  return widths.map(width => `/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
 };
 </script>
 
@@ -149,8 +148,8 @@ const getOptimizedImageSrcset = (baseName) => {
           <div class="rounded-full ring-0 ring-transparent transition group-hover:ring-1 group-hover:ring-[var(--accent)]/60">
             <picture>
               <source :srcset="getOptimizedImageSrcset('logo-club')" sizes="56px" type="image/webp">
-              <source srcset="../assets/logo-club.png" type="image/png">
-              <img ref="logoRef" :src="logoUrl" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" width="56" height="56" />
+              <source srcset="/assets/logo-club.png" type="image/png">
+              <img ref="logoRef" src="/assets/logo-club.webp" alt="Logo du club" class="h-14 w-auto object-contain transition-transform group-hover:scale-[1.03] group-hover:p-3" loading="lazy" width="56" height="56" />
             </picture>
           </div>
           <span class="sr-only">Accueil</span>
@@ -207,8 +206,8 @@ const getOptimizedImageSrcset = (baseName) => {
         <!-- Logo -->
         <picture>
           <source :srcset="getOptimizedImageSrcset('logo-club')" sizes="56px" type="image/webp">
-          <source srcset="../assets/logo-club.png" type="image/png">
-          <img :src="logoUrl" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" width="56" height="56" />
+          <source srcset="/assets/logo-club.png" type="image/png">
+          <img src="/assets/logo-club.webp" alt="Logo du club" class="absolute top-5 left-5 h-14 w-auto" loading="lazy" width="56" height="56" />
         </picture>
 
         <!-- Close button -->
