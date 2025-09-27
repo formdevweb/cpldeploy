@@ -1,11 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import plaqueImage from '../assets/plaque.webp'
-import socialImage from '../assets/social.jpg'
-import installationImage1 from '../assets/installation1.webp'
-import installationImage2 from '../assets/installation2.webp'
-import installationImage3 from '../assets/installation3.webp'
-import installationImage4 from '../assets/installation4.webp'
 import ValuesModal from '../components/ValuesModal.vue'
 
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
@@ -25,10 +19,10 @@ const closeModal = () => {
 }
 
 const carouselImages = [
-  installationImage1,
-  installationImage2,
-  installationImage3,
-  installationImage4
+  '/assets/installation1.webp',
+  '/assets/installation2.webp',
+  '/assets/installation3.webp',
+  '/assets/installation4.webp'
 ]
 
 const team = [
@@ -124,7 +118,7 @@ const missionValues = [
 
 const getOptimizedImageSrcset = (baseName) => {
   const widths = [600, 1200, 1800];
-  return widths.map(width => `/src/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
+  return widths.map(width => `/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
 };
 </script>
 
@@ -173,8 +167,8 @@ const getOptimizedImageSrcset = (baseName) => {
         <div class="md:w-5/12 flex flex-col items-center md:ml-8 z-10" data-aos="fade-left">
           <picture>
             <source :srcset="getOptimizedImageSrcset('plaque')" sizes="600px" type="image/webp">
-            <source srcset="../assets/plaque.png" type="image/png">
-            <img :src="plaqueImage" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in" loading="lazy" width="600" height="450">
+            <source srcset="/assets/plaque.png" type="image/png">
+            <img src="/assets/plaque.webp" alt="Plaque commémorative du club" class="max-w-full h-auto rounded-lg shadow-md border border-gray-300 transition-transform duration-300 hover:scale-105" data-aos="zoom-in" loading="lazy" width="600" height="450">
           </picture>
           <p class="text-base mt-4 text-gray-600" data-aos="fade-up" data-aos-delay="400">Plaque commémorative du Club Pongiste Libercourtois</p>
         </div>

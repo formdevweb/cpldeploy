@@ -31,7 +31,7 @@ const copyPhoneNumber = async (phoneNumber) => {
 
 const getOptimizedImageSrcset = (baseName) => {
   const widths = [600, 1200, 1800];
-  return widths.map(width => `/src/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
+  return widths.map(width => `/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
 };
 </script>
 
@@ -95,8 +95,8 @@ const getOptimizedImageSrcset = (baseName) => {
           <div class="mt-6">
             <picture>
               <source :srcset="getOptimizedImageSrcset('social')" sizes="(max-width: 600px) 600w, (max-width: 1200px) 1200w, 1800w" type="image/webp">
-              <source srcset="/src/assets/social.jpg" type="image/jpeg">
-              <img src="/src/assets/social.webp" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" width="284" height="160" />
+              <source srcset="/assets/social.jpg" type="image/jpeg">
+              <img src="/assets/social.webp" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" width="284" height="160" />
             </picture>
           </div>
         </div>
