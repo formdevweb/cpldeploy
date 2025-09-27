@@ -1,5 +1,6 @@
 <script setup>
 import { inject } from 'vue';
+
 const navLinks = [
   { label: 'Accueil', slug: '#accueil' },
   { label: 'À propos', slug: '#club' },
@@ -26,6 +27,11 @@ const copyPhoneNumber = async (phoneNumber) => {
     console.error('Failed to copy phone number: ', err);
     showInfo('Impossible de copier le numéro de téléphone. Veuillez le copier manuellement.', 'error');
   }
+};
+
+const getOptimizedImageSrcset = (baseName) => {
+  const widths = [600, 1200, 1800];
+  return widths.map(width => `/src/assets/${baseName}-${width}w.webp ${width}w`).join(', ');
 };
 </script>
 
@@ -88,10 +94,10 @@ const copyPhoneNumber = async (phoneNumber) => {
           </div>
           <div class="mt-6">
             <picture>
-  <source srcset="/src/assets/social.webp" type="image/webp">
-  <source srcset="/src/assets/social.jpg" type="image/jpeg">
-  <img src="/src/assets/social.jpg" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" width="284" height="160" />
-</picture>
+              <source :srcset="getOptimizedImageSrcset('social')" sizes="(max-width: 600px) 600w, (max-width: 1200px) 1200w, 1800w" type="image/webp">
+              <source srcset="/src/assets/social.jpg" type="image/jpeg">
+              <img src="/src/assets/social.webp" alt="Réseaux sociaux du club" loading="lazy" class="w-full h-40 md:h-auto lg:h-auto rounded-md border border-white/10 object-cover" width="284" height="160" />
+            </picture>
           </div>
         </div>
 
