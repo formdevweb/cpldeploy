@@ -156,7 +156,7 @@ const getOptimizedImageSrcset = (baseName) => {
   <section class="pt-16 md:pt-32 bg-gray-200 text-gray-800">
     <div class="container mx-auto px-4 lg:px-12">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative">
-        <div class="md:w-7/12 text-left p-4 sm:p-6 border border-brand-accent rounded-lg transition hover:shadow-lg bg-white" data-aos="fade-right">
+        <div class="md:w-7/12 text-left p-4 sm:p-6 border border-brand-accent rounded-lg transition hover:shadow-lg bg-white" <!-- data-aos="fade-right" --> >
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-brand-accent" data-aos="fade-up">Notre Histoire</h2>
           <div class="space-y-4">
             <p class="text-xl font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">Club de tennis de table situé à Libercourt, offrant des activités pour tous les âges et tous les niveaux depuis plus de 50 ans.</p>
@@ -302,6 +302,7 @@ const getOptimizedImageSrcset = (baseName) => {
           </ul>
         </div>
         <div>
+        <!--
           <Carousel :items-to-show="1" :wrap-around="true" class="shadow-xl rounded-lg">
             <Slide v-for="(image, index) in carouselImages" :key="index">
               <div class="h-128">
@@ -318,6 +319,7 @@ const getOptimizedImageSrcset = (baseName) => {
               <Pagination />
             </template>
           </Carousel>
+        -->
         </div>
       </div>
     </div>
