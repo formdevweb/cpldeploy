@@ -1,6 +1,7 @@
 <script setup>
 import { inject } from 'vue';
 import { RouterLink } from 'vue-router';
+import { usePhoneHandler } from '../composables/usePhoneHandler';
 
 const navLinks = [
   { label: 'Accueil', name: 'accueil' },

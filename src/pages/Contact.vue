@@ -49,7 +49,7 @@
                 <p class="font-bold text-xl mb-4">Contactez-nous</p>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 w-full">
                     <a href="mailto:contact@cpl-libercourt.com" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 w-full">Email</a>
-                    <a href="tel:0660051241" @click.prevent="copyPhoneNumber('0660051241')" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 w-full cursor-pointer" title="Cliquez pour appeler (mobile) ou copier le numéro (ordinateur)">Téléphone</a>
+                    <a href="tel:0660051241" @click="handlePhoneClick('0660051241', $event)" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors duration-300 w-full cursor-pointer" title="Cliquez pour appeler (mobile) ou copier le numéro (ordinateur)">Téléphone</a>
                 </div>
             </div>
         </div>
@@ -64,8 +64,7 @@
     
         <div class="container mx-auto px-4 py-16">
           <!-- Écrivez-nous -->      <section id="formulaire" class="mb-16">
-        <h2 class="text-5xl font-bold text-center text-blue-600 text-shadow-sm mb-4">Écrivez-nous</h2>
-        <p class="text-lg text-center text-gray-700 max-w-2xl mx-auto mb-12">Nous vous répondrons dans les plus brefs délais.</p>
+
         <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 form-pattern-bg">
           <!-- Success/Error Messages -->
           <div v-if="successMessage" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
@@ -141,6 +140,7 @@
 
 <script setup>
 import { ref, inject } from 'vue';
+import { usePhoneHandler } from '../composables/usePhoneHandler';
 
 const form = ref({
   name: '',
@@ -186,15 +186,7 @@ const submitForm = async () => {
   }
 };
 
-const copyPhoneNumber = async (phoneNumber) => {
-  try {
-    await navigator.clipboard.writeText(phoneNumber);
-    showInfo(`Le numéro de téléphone ${phoneNumber} a été copié dans le presse-papiers !`, 'success');
-  } catch (err) {
-    console.error('Failed to copy phone number: ', err);
-    showInfo('Impossible de copier le numéro de téléphone. Veuillez le copier manuellement.', 'error');
-  }
-};
+const { handlePhoneClick } = usePhoneHandler();
 
 const contacts = [
   {
