@@ -6,7 +6,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const app = express();
-const port = 3000; // Port pour votre API backend
+const port =  process.env.PORT || 3000; // Port pour votre API backend
 
 // Middleware pour permettre les requêtes Cross-Origin (CORS) depuis votre frontend Vue.js
 app.use(cors());
