@@ -36,6 +36,7 @@ onMounted(async () => {
 <template>
   <div class="bg-gray-100">
     <section class="hero-section relative bg-cover bg-center py-12 sm:py-16 md:py-20 md:min-h-screen text-white flex items-center justify-center">
+      <img src="/assets/hero.webp" alt="Salle du Club Pongiste Libercourtois avec des joueurs de tennis de table en action" class="absolute inset-0 w-full h-full object-cover">
       <div class="absolute inset-0 bg-black opacity-40"></div>
       <div class="container mx-auto px-4 text-center relative z-10 flex flex-col items-center justify-center h-full">        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-brand-gold text-shadow-sm">Rejoignez une communauté passionnée</h1>
         <p class="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto text-shadow-sm">
@@ -60,12 +61,6 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
-.hero-section {
-  background-image: url('../assets/hero.webp'); /* WebP version */
-  background-image: url('../assets/hero.jpg');  /* JPG fallback */
-  background-attachment: fixed;
-}
-</style>
+
 
 

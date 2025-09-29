@@ -1,12 +1,13 @@
 <script setup>
 import { inject } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const navLinks = [
-  { label: 'Accueil', slug: '#accueil' },
-  { label: 'À propos', slug: '#club' },
-  { label: 'Calendrier', slug: '#calendrier' },
-  { label: 'Horaires & Tarifs', slug: '#horaires-tarifs' },
-  { label: 'Contact', slug: '#contact' }
+  { label: 'Accueil', name: 'accueil' },
+  { label: 'Le Club', name: 'club' },
+  { label: 'Calendrier', name: 'calendrier' },
+  { label: 'Horaires & Tarifs', name: 'horaires-tarifs' },
+  { label: 'Contact', name: 'contact' }
 ]
 
 const schedule = [
@@ -42,17 +43,17 @@ const getOptimizedImageSrcset = (baseName) => {
         
         <!-- Navigation -->
         <div class="rounded-lg border border-brand-gold p-6">
-          <h3 class="text-sm font-semibold uppercase tracking-wider heading text-center">Navigation</h3>
+          <h2 class="text-sm font-semibold uppercase tracking-wider heading text-center">Navigation</h2>
           <ul class="mt-6 space-y-4">
             <li v-for="link in navLinks" :key="link.label">
-              <a :href="link.slug" class="footer-link text-base text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral">{{ link.label }}</a>
+              <RouterLink :to="{ name: link.name }" class="footer-link text-base text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral">{{ link.label }}</RouterLink>
             </li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div class="rounded-lg border border-brand-gold p-6">
-          <h3 class="text-sm font-semibold uppercase tracking-wider heading text-center">Contact</h3>
+          <h2 class="text-sm font-semibold uppercase tracking-wider heading text-center">Contact</h2>
           <div class="mt-6 space-y-4 text-base text-white/80">
             <p class="flex items-start">
               <span class="mt-1 h-5 w-5 flex-shrink-0">
@@ -81,13 +82,13 @@ const getOptimizedImageSrcset = (baseName) => {
 
         <!-- Suivez-nous -->
         <div class="rounded-lg border border-brand-gold p-6">
-          <h3 class="text-sm font-semibold uppercase tracking-wider heading text-center">Suivez-nous</h3>
+          <h2 class="text-sm font-semibold uppercase tracking-wider heading text-center">Suivez-nous</h2>
           <div class="mt-6 flex justify-center gap-6">
-            <a href="#" class="text-white/80 hover:text-[var(--accent)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral active:opacity-90">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-[var(--accent)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral active:opacity-90">
               <span class="sr-only">Facebook</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
             </a>
-            <a href="#" class="text-white/80 hover:text-[var(--accent)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral active:opacity-90">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-[var(--accent)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-neutral active:opacity-90">
               <span class="sr-only">Instagram</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0-2a7 7 0 110 14 7 7 0 010-14zm6.406-1.18a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd" /></svg>
             </a>

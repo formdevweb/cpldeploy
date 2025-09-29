@@ -20,25 +20,16 @@ const router = createRouter({
   history: createWebHashHistory('/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const element = document.querySelector(to.hash);
-          if (element) {
-            resolve({
-              el: element,
-              behavior: 'smooth',
-            });
-          } else {
-            resolve({ top: 0 }); // Fallback to top if element not found
-          }
-        }, 300); // Small delay to allow rendering
-      });
-    }
     if (savedPosition) {
       return savedPosition;
+    } else if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      };
+    } else {
+      return { top: 0 };
     }
-    return { top: 0 };
   },
 })
 
