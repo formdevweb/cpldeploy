@@ -20,16 +20,20 @@ const router = createRouter({
   history: createWebHashHistory('/'),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    } else if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      };
-    } else {
-      return { top: 0 };
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (savedPosition) {
+          resolve(savedPosition);
+        } else if (to.hash) {
+          resolve({
+            el: to.hash,
+            behavior: 'smooth',
+          });
+        } else {
+          resolve({ top: 0 });
+        }
+      }, 100); // Délai pour permettre aux transitions de se terminer
+    });
   },
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <Transition name="info-window">
+  <!-- <Transition name="info-window"> -->
     <div v-if="show" class="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div class="p-4 rounded-lg shadow-lg text-white max-w-sm w-full"
         :class="type === 'success' ? 'bg-green-500' : 'bg-red-500'">
@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-  </Transition>
+  <!-- </Transition> -->
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <!-- <transition name="fade"> -->
     <button
       v-if="isVisible"
       @click="scrollToTop"
@@ -7,10 +7,10 @@
       aria-label="Scroll to top"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 arrow-icon group-hover:-translate-y-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7 7 7M12 3v18" />
       </svg>
     </button>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script setup>

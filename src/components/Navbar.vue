@@ -142,7 +142,7 @@ const getOptimizedImageSrcset = (baseName) => {
 <template>
   <div>
     <header :class="['fixed top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-shadow duration-200 w-full border-b border-brand-gold', hasShadow ? 'shadow-md border-b border-gray-200 bg-white/90' : 'border-b border-gray-200 bg-white/80']">
-      <nav class="mx-auto flex flex-nowrap overflow-hidden max-w-7xl items-center justify-between px-2 py-5 sm:px-6 lg:px-8 max-w-full box-border">
+      <nav class="mx-auto flex flex-nowrap overflow-hidden max-w-7xl items-center justify-between px-2 py-5 sm:px-6 lg:px-8 box-border">
         <!-- Left: Logo -->
         <RouterLink to="/" class="group flex items-center gap-1 min-w-0 flex-shrink-0">
           <div class="rounded-full ring-0 ring-transparent transition group-hover:ring-1 group-hover:ring-[var(--accent)]/60">
@@ -240,7 +240,7 @@ const getOptimizedImageSrcset = (baseName) => {
                   activeIndex === i ? 'text-[var(--accent)] font-semibold' : 'hover:text-[var(--accent)]'
                 ]"
               >
-                <div v-html="item.icon" class="h-7 w-7"></div>
+                <div class="h-7 w-7" v-html="item.icon"></div>
                 <span>{{ item.label }}</span>
               </RouterLink>
             </li>
