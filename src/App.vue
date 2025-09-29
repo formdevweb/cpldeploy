@@ -1,9 +1,17 @@
 <script setup>
-import { ref, reactive, provide } from 'vue';
+import { ref, reactive, provide, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import AOS from 'aos';
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import ScrollToTopButton from './components/ScrollToTopButton.vue'
 import InfoWindow from './components/InfoWindow.vue'
+
+const route = useRoute();
+
+watch(() => route.path, () => {
+  AOS.refresh();
+});
 
 const infoWindowState = reactive({
   show: false,
@@ -40,7 +48,3 @@ provide('showInfo', showInfo);
   </div>
   
 </template>
-
-<style scoped>
-
-</style>

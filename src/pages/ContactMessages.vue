@@ -35,34 +35,47 @@
         <div v-else>
           <div class="rounded-lg shadow-md border border-gray-200">
             <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-blue-600">
+              <thead class="bg-blue-600 hidden lg:table-header-group">
                 <tr>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tl-lg">ID</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nom</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Sujet</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Message</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Date</th>
-                  <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tr-lg">Actions</th>
+                  <th scope="col" class="hidden md:table-cell px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tl-lg">ID</th>
+                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nom</th>
+                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
+                  <th scope="col" class="hidden sm:table-cell px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Sujet</th>
+                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Message</th>
+                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Date</th>
+                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tr-lg">Actions</th>
                 </tr>
               </thead>
-              <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="(message, index) in messages" :key="message.id" :class="index % 2 === 0 ? 'bg-white' : 'bg-blue-50'">
-                  <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ message.id }}</td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{{ message.name }}</td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{{ message.email }}</td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{{ message.subject }}</td>
-                  <td class="px-4 py-4 text-sm text-gray-700 cursor-pointer transition-colors duration-200" :class="getRandomHoverColor()" @click="openMessageModal(message.message)">
-                    {{ truncateMessage(message.message) }}
+              <tbody class="bg-white divide-y divide-gray-200 block lg:table-row-group">
+                <tr v-for="(message, index) in messages" :key="message.id" :class="[index % 2 === 0 ? 'bg-white' : 'bg-blue-50', 'block lg:table-row mb-4 lg:mb-0 p-4 border border-gray-200 rounded-lg shadow-sm']">
+                  <td class="hidden md:table-cell px-2 py-2 sm:px-4 sm:py-4 text-sm font-medium text-gray-900 block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">ID:</span> {{ message.id }}
                   </td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-700">{{ formatDate(message.submission_date) }}</td>
-                  <td class="px-4 py-4 whitespace-nowrap text-sm font-medium flex items-center space-x-2">
-                    <button @click.stop="openMessageModal(message.message)" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
-                      Voir
-                    </button>
-                    <button @click.stop="confirmDeleteMessage(message.id)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
-                      Supprimer
-                    </button>
+                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Nom:</span> {{ message.name }}
+                  </td>
+                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Email:</span> {{ message.email }}
+                  </td>
+                  <td class="hidden sm:table-cell px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Sujet:</span> {{ message.subject }}
+                  </td>
+                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 cursor-pointer transition-colors duration-200 block lg:table-cell lg:text-left flex items-center flex-wrap" :class="getRandomHoverColor()" @click="openMessageModal(message.message)">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Message:</span> {{ truncateMessage(message.message) }}
+                  </td>
+                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Date:</span> {{ formatDate(message.submission_date) }}
+                  </td>
+                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm font-medium block lg:table-cell lg:text-left flex items-center flex-wrap">
+                    <span class="font-bold text-blue-600 lg:hidden mr-1">Actions:</span>
+                    <div class="flex space-x-2 lg:space-x-0 lg:flex-row lg:space-y-0 mt-2 lg:mt-0">
+                      <button @click.stop="openMessageModal(message.message)" class="bg-green-500 hover:bg-green-600 text-white font-bold py-0.5 px-1 sm:py-1 sm:px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
+                        Voir
+                      </button>
+                      <button @click.stop="confirmDeleteMessage(message.id)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-0.5 px-1 sm:py-1 sm:px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
+                        Supprimer
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

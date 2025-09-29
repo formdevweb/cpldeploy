@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import { store } from '../store'
 
 const routes = [
@@ -17,23 +17,14 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory('/'),
+  history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (savedPosition) {
-          resolve(savedPosition);
-        } else if (to.hash) {
-          resolve({
-            el: to.hash,
-            behavior: 'smooth',
-          });
-        } else {
-          resolve({ top: 0 });
-        }
-      }, 100); // Délai pour permettre aux transitions de se terminer
-    });
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
   },
 })
 

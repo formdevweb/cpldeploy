@@ -156,10 +156,10 @@ const getOptimizedImageSrcset = (baseName) => {
   <section class="pt-16 md:pt-32 bg-gray-200 text-gray-800">
     <div class="container mx-auto px-4 lg:px-12">
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16 relative">
-        <div class="md:w-7/12 text-left p-4 sm:p-6 border border-brand-accent rounded-lg transition hover:shadow-lg bg-white" <!-- data-aos="fade-right" --> >
+        <div class="md:w-7/12 text-left p-4 sm:p-6 border border-brand-accent rounded-lg transition hover:shadow-lg bg-white" >
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-brand-accent" data-aos="fade-up">Notre Histoire</h2>
           <div class="space-y-4">
-            <p class="text-xl font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">Club de tennis de table situé à Libercourt, offrant des activités pour tous les âges et tous les niveaux depuis plus de 50 ans.</p>
+            <p class="text-xl font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="100">Club de tennis de table situé à Libercour, offrant des activités pour tous les âges et tous les niveaux depuis plus de 50 ans.</p>
             <p class="text-xl font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="200">Fondé en 1970, le Club Pongiste Libercourtois a vu naître et grandir plusieurs générations de joueurs passionnés. Depuis plus de 50 ans, nous perpétuons les valeurs du tennis de table dans un esprit convivial et sportif.</p>
             <p class="text-xl font-medium leading-relaxed" data-aos="fade-up" data-aos-delay="300">Notre club a évolué au fil des décennies, s'adaptant aux nouvelles pratiques tout en conservant son âme familiale. Aujourd'hui, nous accueillons des joueurs de tous âges et tous niveaux, des débutants aux compétiteurs confirmés.</p>
           </div>
@@ -211,69 +211,6 @@ const getOptimizedImageSrcset = (baseName) => {
   </div>
 
   <section class="py-16 md:py-32 bg-gray-200 text-gray-800">
-    <div class="container mx-auto px-4 lg:px-12 text-center">
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-brand-primary">Notre Comité Directeur</h2>
-      <p class="text-xl font-medium mb-32 max-w-3xl mx-auto text-gray-700">Des passionnés au service du Club Pongiste Libercourtois et de sa communauté.</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div v-for="(member, index) in team" :key="member.name"
-             :class="[member.isInvitation ? 'bg-blue-100' : 'bg-white', 'rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300']"
-             data-aos="fade-up" :data-aos-delay="index * 100">
-          <div :class="[member.isInvitation ? 'bg-yellow-400' : 'bg-brand-accent', 'h-24 flex items-center justify-center']">
-            <svg v-show="!member.isInvitation" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-brand-primary mb-1">{{ member.name }}</h3>
-            <p :class="[member.isInvitation ? 'text-yellow-700' : 'text-brand-accent', 'font-semibold mb-3']">{{ member.role }}</p>
-            <p class="text-gray-600 text-sm">{{ member.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="bg-gray-200">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" class="w-full block">
-      <path fill="#e5e7eb" d="M0,96L120,117.3C240,139,480,181,720,181.3C960,181,1200,139,1320,117.3L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" stroke="#1ABC9C" stroke-width="1"></path>
-    </svg>
-  </div>
-
-  <section class="py-16 md:py-32 bg-gray-200 text-gray-800">
-    <div class="container mx-auto px-4 lg:px-12">
-      <div class="text-center mb-24">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-primary">Nos Réalisations</h2>
-        <p class="text-xl font-medium text-gray-700 mt-2">Quelques moments forts de notre histoire récente</p>
-      </div>
-      <div class="space-y-8">
-        <div v-for="(achievement, index) in achievements" :key="achievement.title"
-             :class="[
-               'bg-white p-6 rounded-lg shadow-md flex items-center space-x-6 hover:shadow-xl transition-shadow duration-300',
-               index % 2 === 0 ? 'border-l-4 border-yellow-400' : 'flex-row-reverse border-r-4 border-yellow-400 space-x-reverse',
-               achievement.color.replace('bg-', 'hover:bg-').replace('-500', '-50')
-             ]"
-             data-aos="fade-up" :data-aos-delay="index * 150">
-          <div class="flex-shrink-0">
-            <div :class="[achievement.color, 'text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-lg']">
-              {{ achievement.year }}
-            </div>
-          </div>
-          <div class="flex-grow">
-            <h3 class="text-xl font-semibold text-brand-primary">{{ achievement.title }}</h3>
-            <p class="text-gray-600 mt-1">{{ achievement.description }}</p>
-          </div>
-          <div :class="[achievement.color, 'flex-shrink-0 text-4xl']">
-            {{ achievement.icon }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="bg-gray-200">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" class="w-full block" transform="scale(1, -1)">
-      <path fill="#e5e7eb" d="M0,96L120,117.3C240,139,480,181,720,181.3C960,181,1200,139,1320,117.3L1440,96L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z" stroke="#1ABC9C" stroke-width="1"></path>
-    </svg>
-  </div>
-
-  <section class="py-16 md:py-32 bg-gray-200 text-gray-800">
     <div class="container mx-auto px-4 lg:px-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
@@ -285,7 +222,7 @@ const getOptimizedImageSrcset = (baseName) => {
             </div>
             <div class="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-accent mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              <span>Complexe Sportif Léo Lagrange, 62820 Libercourt</span>
+              <span>Complexe Sportif Léo Lagrange, 62820 Libercour</span>
             </div>
             <div class="flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand-accent mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
@@ -302,7 +239,6 @@ const getOptimizedImageSrcset = (baseName) => {
           </ul>
         </div>
         <div>
-        <!--
           <Carousel :items-to-show="1" :wrap-around="true" class="shadow-xl rounded-lg">
             <Slide v-for="(image, index) in carouselImages" :key="index">
               <div class="h-128">
@@ -319,7 +255,6 @@ const getOptimizedImageSrcset = (baseName) => {
               <Pagination />
             </template>
           </Carousel>
-        -->
         </div>
       </div>
     </div>

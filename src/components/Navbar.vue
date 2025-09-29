@@ -142,7 +142,7 @@ const getOptimizedImageSrcset = (baseName) => {
 <template>
   <div>
     <header :class="['fixed top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 transition-shadow duration-200 w-full border-b border-brand-gold', hasShadow ? 'shadow-md border-b border-gray-200 bg-white/90' : 'border-b border-gray-200 bg-white/80']">
-      <nav class="mx-auto flex flex-nowrap overflow-hidden max-w-7xl items-center justify-between px-2 py-5 sm:px-6 lg:px-8 box-border">
+      <nav class="mx-auto flex overflow-hidden max-w-7xl items-center justify-between px-2 py-5 sm:px-6 lg:px-8 box-border">
         <!-- Left: Logo -->
         <RouterLink to="/" class="group flex items-center gap-1 min-w-0 flex-shrink-0">
           <div class="rounded-full ring-0 ring-transparent transition group-hover:ring-1 group-hover:ring-[var(--accent)]/60">
@@ -156,12 +156,12 @@ const getOptimizedImageSrcset = (baseName) => {
         </RouterLink>
 
         <!-- Center: Desktop menu -->
-        <ul :class="['hidden gap-2 text-sm font-medium text-gray-900 md:flex heading']">
+        <ul :class="['hidden gap-2 text-sm font-medium text-gray-900 lg:flex heading']">
           <li v-for="(item, i) in navItems" :key="item.label">
             <RouterLink v-if="!(item.requiresAdmin && !store.isAdmin)" :to="item.to"
                @click.prevent="activeIndex = i; setActiveBySlug(item.slug)"
                :class="[
-                 'inline-block px-1 py-0.5 transition-all duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 whitespace-nowrap',
+                 'inline-block px-1 py-0.5 transition-all duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2',
                  activeIndex === i
                    ? 'bg-[var(--accent)] text-white font-semibold border-b-2 border-[var(--primary)]'
                    : 'text-gray-900 hover:bg-[var(--accent-dark)] hover:text-white'
@@ -173,7 +173,7 @@ const getOptimizedImageSrcset = (baseName) => {
         </ul>
 
         <!-- Right: actions -->
-        <div class="hidden items-center gap-3 md:flex">
+        <div class="hidden items-center gap-3 lg:flex">
           
           <RouterLink v-if="!store.isAdmin" to="/login" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 cursor-pointer">
               Admin
@@ -184,7 +184,7 @@ const getOptimizedImageSrcset = (baseName) => {
         </div>
 
         <!-- Mobile: hamburger -->
-        <button ref="hamburgerButton" @click="isMenuOpen = !isMenuOpen" :aria-expanded="isMenuOpen" aria-controls="mobile-menu" class="z-50 inline-flex items-center justify-center rounded-md border border-[var(--accent)] bg-white p-1 text-[var(--accent)] shadow-sm transition-colors duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] md:hidden cursor-pointer min-w-0 flex-shrink-0">
+        <button ref="hamburgerButton" @click="isMenuOpen = !isMenuOpen" :aria-expanded="isMenuOpen" aria-controls="mobile-menu" class="z-50 inline-flex items-center justify-center rounded-md border border-[var(--accent)] bg-white p-1 text-[var(--accent)] shadow-sm transition-colors duration-200 hover:border-[var(--primary)] hover:text-[var(--primary)] lg:hidden cursor-pointer min-w-0 flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
@@ -202,7 +202,7 @@ const getOptimizedImageSrcset = (baseName) => {
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div ref="mobileMenuRef" v-show="isMenuOpen" id="mobile-menu" role="dialog" aria-modal="true" class="fixed inset-0 z-50 bg-brand-neutral md:hidden p-8">
+      <div ref="mobileMenuRef" v-show="isMenuOpen" id="mobile-menu" role="dialog" aria-modal="true" class="fixed inset-0 z-50 bg-brand-neutral lg:hidden p-8">
         <!-- Logo -->
         <picture>
           <source :srcset="getOptimizedImageSrcset('logo-club')" sizes="56px" type="image/webp">
