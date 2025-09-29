@@ -190,7 +190,11 @@ const closeEditNewsModal = () => {
 
 const addNews = async () => {
   try {
-    await axios.post(`${import.meta.env.VITE_API_URL}/api/news`, formModel.value);
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/news`, formModel.value, {
+      headers: {
+        Authorization: `Bearer ${store.token}`,
+      },
+    });
     emit('news-updated');
     closeEditNewsModal();
   } catch (error) {
@@ -200,7 +204,11 @@ const addNews = async () => {
 
 const updateNews = async () => {
   try {
-    await axios.put(`${import.meta.env.VITE_API_URL}/api/news/${formModel.value.id}`, formModel.value);
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/news/${formModel.value.id}`, formModel.value, {
+      headers: {
+        Authorization: `Bearer ${store.token}`,
+      },
+    });
     emit('news-updated');
     closeEditNewsModal();
   } catch (error) {
