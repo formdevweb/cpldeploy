@@ -32,54 +32,30 @@
           <h3 class="mt-2 text-2xl font-medium text-gray-900">Aucun message</h3>
           <p class="mt-1 text-base text-gray-500">Il n'y a pas encore de messages de contact à afficher.</p>
         </div>
-        <div v-else>
-          <div class="rounded-lg shadow-md border border-gray-200">
-            <table class="min-w-full divide-y divide-gray-200">
-              <thead class="bg-blue-600 hidden lg:table-header-group">
-                <tr>
-                  <th scope="col" class="hidden md:table-cell px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tl-lg">ID</th>
-                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Nom</th>
-                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
-                  <th scope="col" class="hidden sm:table-cell px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Sujet</th>
-                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Message</th>
-                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Date</th>
-                  <th scope="col" class="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tr-lg">Actions</th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-200 block lg:table-row-group">
-                <tr v-for="(message, index) in messages" :key="message.id" :class="[index % 2 === 0 ? 'bg-white' : 'bg-blue-50', 'block lg:table-row mb-4 lg:mb-0 p-4 border border-gray-200 rounded-lg shadow-sm']">
-                  <td class="hidden md:table-cell px-2 py-2 sm:px-4 sm:py-4 text-sm font-medium text-gray-900 block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">ID:</span> {{ message.id }}
-                  </td>
-                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Nom:</span> {{ message.name }}
-                  </td>
-                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Email:</span> {{ message.email }}
-                  </td>
-                  <td class="hidden sm:table-cell px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Sujet:</span> {{ message.subject }}
-                  </td>
-                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 cursor-pointer transition-colors duration-200 block lg:table-cell lg:text-left flex items-center flex-wrap" :class="getRandomHoverColor()" @click="openMessageModal(message.message)">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Message:</span> {{ truncateMessage(message.message) }}
-                  </td>
-                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm text-gray-700 block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Date:</span> {{ formatDate(message.submission_date) }}
-                  </td>
-                  <td class="px-2 py-2 sm:px-4 sm:py-4 text-sm font-medium block lg:table-cell lg:text-left flex items-center flex-wrap">
-                    <span class="font-bold text-blue-600 lg:hidden mr-1">Actions:</span>
-                    <div class="flex space-x-2 lg:space-x-0 lg:flex-row lg:space-y-0 mt-2 lg:mt-0">
-                      <button @click.stop="openMessageModal(message.message)" class="bg-green-500 hover:bg-green-600 text-white font-bold py-0.5 px-1 sm:py-1 sm:px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
-                        Voir
-                      </button>
-                      <button @click.stop="confirmDeleteMessage(message.id)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-0.5 px-1 sm:py-1 sm:px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
-                        Supprimer
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-for="message in messages" :key="message.id" class="bg-white rounded-lg shadow-md border border-gray-200 p-4 flex flex-col space-y-3 transition-shadow duration-200 hover:shadow-lg">
+            <div class="flex justify-end items-start">
+              <p class="text-xs text-gray-500">{{ formatDate(message.submission_date) }}</p>
+            </div>
+            <div>
+              <p class="text-sm"><span class="font-bold text-blue-600">Nom:</span> <span v-if="message.name">{{ message.name }}</span><span v-else class="text-gray-400 italic">(Non renseigné)</span></p>
+              <p class="text-sm"><span class="font-bold text-blue-600">Email:</span> <span v-if="message.email">{{ message.email }}</span><span v-else class="text-gray-400 italic">(Non renseigné)</span></p>
+              <p class="text-sm"><span class="font-bold text-blue-600">Sujet:</span> <span v-if="message.subject">{{ message.subject }}</span><span v-else class="text-gray-400 italic">(Non renseigné)</span></p>
+            </div>
+            <div class="text-sm text-gray-700 cursor-pointer transition-colors duration-200" :class="getRandomHoverColor()" @click="openMessageModal(message.message)">
+              <p><span class="font-bold text-blue-600">Message:</span> {{ truncateMessage(message.message) }}</p>
+            </div>
+
+            <div class="flex justify-end space-x-2 pt-3 mt-auto border-t border-gray-100">
+              <button @click.stop="openMessageModal(message.message)" class="inline-flex items-center space-x-1.5 bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>
+                <span>Voir</span>
+              </button>
+              <button @click.stop="confirmDeleteMessage(message)" class="inline-flex items-center space-x-1.5 bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded-full text-xs transition-colors duration-200 shadow-md cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" /></svg>
+                <span>Supprimer</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -180,8 +156,8 @@ const getRandomHoverColor = () => {
   return hoverColors[randomIndex];
 };
 
-const confirmDeleteMessage = (id) => {
-  messageToDeleteId.value = id;
+const confirmDeleteMessage = (message) => {
+  messageToDeleteId.value = message.id;
   showDeleteConfirmationModal.value = true;
 };
 
@@ -210,6 +186,7 @@ const deleteMessage = async () => {
     messageToDeleteId.value = null;
   }
 };
+
 
 onMounted(() => {
   fetchMessages();

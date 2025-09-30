@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port =  process.env.PORT || 3000; // Port pour votre API backend
 
+
+
 // Middleware pour permettre les requêtes Cross-Origin (CORS) depuis votre frontend Vue.js
 app.use(cors());
 app.use(express.json({ limit: '50mb' })); // Pour parser les requêtes JSON avec une limite plus élevée
@@ -370,7 +372,15 @@ app.post('/api/contact', async (req, res) => {
 app.get('/api/contacts', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM contacts ORDER BY submission_date DESC');
-        res.json(rows);
+        const cleanRows = rows.map(row => ({
+            id: row.id,
+            name: row.name,
+            email: row.email,
+            subject: row.subject,
+            message: row.message,
+            submission_date: row.submission_date
+        }));
+        res.json(cleanRows);
     } catch (err) {
         console.error('Erreur lors de la récupération des messages de contact :', err);
         res.status(500).json({ message: 'Erreur serveur', error: err.message });
@@ -389,8 +399,7 @@ app.delete('/api/contacts/:id', authenticateToken, async (req, res) => {
     } catch (err) {
         console.error('Erreur lors de la suppression du message de contact :', err);
         res.status(500).json({ message: 'Erreur serveur', error: err.message });
-    }
-});
+    }n});
 
 // Démarrer le serveur
 app.listen(port, () => {
