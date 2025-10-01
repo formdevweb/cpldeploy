@@ -113,9 +113,9 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               <div v-for="event in group" :key="event.id"
-                @click="store.isAdmin && !isMobile ? selectEvent(event) : null"
+                @click="store.isAdmin ? selectEvent(event) : null"
                 class="bg-white rounded-xl shadow-lg w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-l-4 flex flex-row relative"
-                :class="[event.status === 'open' ? 'border-green-500' : 'border-red-500', { 'cursor-pointer': store.isAdmin && !isMobile, 'opacity-60 grayscale': isPastEvent(event) }]">
+                :class="[event.status === 'open' ? 'border-green-500' : 'border-red-500', { 'cursor-pointer': store.isAdmin, 'opacity-60 grayscale': isPastEvent(event) }]">
 
                 <span v-if="isNextEvent(event)" class="absolute top-0 right-0 mt-2 mr-2 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-full z-10">Prochainement</span>
 
