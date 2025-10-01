@@ -2,7 +2,7 @@ import { reactive } from 'vue';
 
 export const store = reactive({
   token: localStorage.getItem('token') || null,
-  isAdmin: localStorage.getItem('isAdmin') === 'true',
+  isAdmin: false,
 
   setToken(newToken) {
     this.token = newToken;

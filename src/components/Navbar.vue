@@ -178,8 +178,10 @@ const getOptimizedImageSrcset = (baseName) => {
           <RouterLink v-if="!store.isAdmin" to="/login" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 cursor-pointer">
               Admin
           </RouterLink>
-          <button v-else @click="logout()" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 cursor-pointer">
-              Déconnexion
+          <button v-else @click="logout()" class="flex items-center justify-center p-3 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer" aria-label="Déconnexion">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
           </button>
         </div>
 
@@ -249,8 +251,11 @@ const getOptimizedImageSrcset = (baseName) => {
                 <RouterLink v-if="!store.isAdmin" to="/login" @click="isMenuOpen = false" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md cursor-pointer">
                     Admin
                 </RouterLink>
-                <button v-else @click="logout()" class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer">
-                    Déconnexion
+                <button v-else @click="logout()" class="flex items-center justify-center p-4 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer w-full">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    <span class="ml-2">Déconnexion</span>
                 </button>
             </li>
           </TransitionGroup>
