@@ -17,7 +17,7 @@
               <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition-opacity duration-300"></div>
             </div>
             <div class="p-4 sm:p-6 text-left flex flex-col flex-grow">
-              <div class="h-32">
+              <div class="h-40">
                 <p class="text-xs sm:text-sm text-blue-600 font-medium mb-1 sm:mb-2">{{ formatDate(newsItem.date) }}</p>
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3 line-clamp-2">{{ newsItem.title }}</h3>
                 <p class="text-sm sm:text-base text-gray-600 line-clamp-3">{{ newsItem.description }}</p>
