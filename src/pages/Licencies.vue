@@ -152,9 +152,9 @@
       <TransitionGroup tag="div" name="list"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <div v-for="licencie in filteredLicencies" :key="licencie.id || licencie.licence"
-          @click="store.isAdmin && !isMobile ? selectMember(licencie) : null"
+          @click="store.isAdmin ? selectMember(licencie) : null"
           class="relative bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-lg p-6 text-center flex flex-col items-center border border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform scale-105 overflow-hidden"
-          :class="{ 'cursor-pointer': store.isAdmin && !isMobile }">
+          :class="{ 'cursor-pointer': store.isAdmin }">
           <div class="absolute top-2 right-2 bg-white p-1 rounded-full shadow-md">
             <span class="text-xl">{{ licencie.gender === 'Homme' ? '♂️' : '♀️' }}</span>
           </div>
@@ -235,12 +235,12 @@
           <div class="flex flex-col sm:flex-row mt-6 gap-4"
             :class="showEditMemberModal ? 'justify-between' : 'justify-end'">
             <button v-if="showEditMemberModal && store.isAdmin" type="button" @click="deleteMember"
-              class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-md w-full sm:w-auto hidden sm:block cursor-pointer">Supprimer</button>
+              class="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-md w-full sm:w-auto cursor-pointer">Supprimer</button>
             <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <button type="button" @click="closeModal"
                 class="bg-gray-200 text-gray-800 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300 w-full sm:w-auto cursor-pointer">Annuler</button>
               <button v-if="store.isAdmin" type="submit"
-                class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md w-full sm:w-auto hidden sm:block cursor-pointer">{{
+                class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md w-full sm:w-auto cursor-pointer">{{
                   showEditMemberModal ? 'Modifier' : 'Ajouter' }}</button>
             </div>
           </div>
