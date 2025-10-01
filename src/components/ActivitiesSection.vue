@@ -149,9 +149,9 @@ onMounted(() => {
       </div>
 
       <div class="mt-12 sm:mt-14 flex justify-center">
-        <a href="#contact" class="btn btn-primary rounded-md px-6 py-3 shadow-sm transition hover:shadow-lg hover:-translate-y-0.5">
+        <RouterLink to="/contact" class="btn btn-primary rounded-md px-6 py-3 shadow-sm transition hover:shadow-lg hover:-translate-y-0.5">
           Nous rejoindre
-        </a>
+        </RouterLink>
       </div>
     </div>
   </section>
