@@ -114,43 +114,39 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
               <div v-for="event in group" :key="event.id"
                 @click="store.isAdmin ? selectEvent(event) : null"
-                class="bg-white rounded-xl shadow-lg w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-l-4 flex flex-row relative"
+                class="bg-white rounded-2xl shadow-xl border border-gray-200 w-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-l-4 flex flex-row relative"
                 :class="[event.status === 'open' ? 'border-green-500' : 'border-red-500', { 'cursor-pointer': store.isAdmin, 'opacity-60 grayscale': isPastEvent(event) }]">
 
                 <span v-if="isNextEvent(event)" class="absolute top-0 right-0 mt-2 mr-2 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-full z-10">Prochainement</span>
 
                 <!-- Date Section -->
-                <div class="flex flex-col items-center justify-center p-4 text-white rounded-l-xl" :class="event.status === 'open' ? 'bg-green-500' : 'bg-red-500'">
-                    <span class="text-3xl font-bold">{{ formatDay(event.date) }}</span>
-                    <span class="text-sm font-semibold uppercase">{{ formatMonth(event.date) }}</span>
+                <div class="flex flex-col items-center justify-center p-4 text-white rounded-l-2xl" :class="event.status === 'open' ? 'bg-green-500' : 'bg-red-500'">
+                    <span class="text-4xl font-bold">{{ formatDay(event.date) }}</span>
+                    <span class="text-base font-semibold uppercase">{{ formatMonth(event.date) }}</span>
                 </div>
 
                 <div class="p-4 flex flex-col flex-grow">
                     <!-- Card Header -->
                     <div class="flex justify-between items-start mb-2">
-                        <p class="text-lg font-bold text-gray-800 leading-tight">{{ event.title }}</p>
+                        <p class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight line-clamp-2">{{ event.title }}</p>
                         <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full" :class="event.status === 'open' ? 'text-green-800 bg-green-100' : 'text-red-800 bg-red-100'">
                             {{ event.status === 'open' ? 'Ouvert' : 'Fermé' }}
                         </span>
                     </div>
 
                     <!-- Card Body -->
-                    <div class="space-y-2 text-gray-600 flex-grow">
-                        <p class="text-sm" :class="{ 'line-clamp-2': !event.showFullDescription }">{{ event.description }}</p>
-                        <button v-if="event.description && event.description.length > 100" @click.stop="toggleDescription(event)"
-                            class="text-blue-600 hover:underline text-sm focus:outline-none">
-                            {{ event.showFullDescription ? 'Lire moins' : 'Lire la suite' }}
-                        </button>
+                    <div class="space-y-3 text-gray-600 flex-grow">
+                        <p class="text-sm line-clamp-3">{{ event.description }}</p>
                     </div>
 
                     <!-- Card Footer -->
                     <div class="flex items-center justify-between text-sm pt-2 mt-auto">
                         <p class="flex items-center gap-2">
-                            <svg class="w-6 h-6" :class="event.status === 'open' ? 'text-green-500' : 'text-red-500'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg class="w-5 h-5" :class="event.status === 'open' ? 'text-green-500' : 'text-red-500'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             {{ event.location }}
                         </p>
                         <p class="flex items-center gap-2">
-                            <svg class="w-6 h-6" :class="event.status === 'open' ? 'text-green-500' : 'text-red-500'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            <svg class="w-5 h-5" :class="event.status === 'open' ? 'text-green-500' : 'text-red-500'" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             {{ event.participants }} participants
                         </p>
                     </div>

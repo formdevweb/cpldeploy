@@ -111,7 +111,7 @@ onMounted(() => {
         <article
           v-for="(a, idx) in activities"
           :key="idx"
-          class="activity-card card group h-full overflow-hidden transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-xl focus-within:-translate-y-0.5 will-change-transform"
+          class="activity-card card group h-full overflow-hidden transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-2xl focus-within:-translate-y-0.5 will-change-transform rounded-2xl border border-gray-200"
           :data-idx="idx"
           :style="{ transitionDelay: revealed[idx] ? '0ms' : `${idx * 280}ms` }"
           :class="[
@@ -119,20 +119,20 @@ onMounted(() => {
             accents[idx % accents.length].bg.replace('bg-', 'hover:bg-').replace('-100', '-50')
           ]"
         >
-          <div class="p-6 sm:p-8">
+          <div class="p-6 sm:p-8 flex flex-col flex-grow">
             <div
-              class="flex items-center justify-center h-14 w-14 rounded-full text-2xl"
+              class="flex items-center justify-center h-16 w-16 rounded-full text-3xl shadow-md"
               :class="[accents[idx % accents.length].bg, accents[idx % accents.length].ring, 'border']"
             >
               <span class="select-none">{{ a.icon }}</span>
             </div>
-            <h3 class="mt-6 text-lg sm:text-xl font-semibold text-gray-800">{{ a.title }}</h3>
-            <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
+            <h3 class="mt-6 text-xl sm:text-2xl font-semibold text-gray-800 line-clamp-2">{{ a.title }}</h3>
+            <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3 flex-grow">
               {{ a.description }}
             </p>
-            <div class="mt-6">
+            <div class="mt-6 mt-auto">
               <span
-                class="inline-flex items-center rounded-full px-3 py-1 text-sm text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                class="inline-flex items-center rounded-full px-4 py-1.5 text-base font-medium text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 :class="[accents[idx % accents.length].chip]"
               >
                 {{ a.tag }}
