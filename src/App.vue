@@ -1,16 +1,32 @@
 <script setup>
-import { ref, reactive, provide, watch } from 'vue';
+import { ref, reactive, provide, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import AOS from 'aos';
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import ScrollToTopButton from './components/ScrollToTopButton.vue'
 import InfoWindow from './components/InfoWindow.vue'
+import CookieConsent from './components/CookieConsent.vue'
+import { store } from './store';
 
 const route = useRoute();
 
-watch(() => route.path, () => {
+const showCookieConsent = ref(false);
+
+watch(() => route.path, (newPath) => {
   AOS.refresh();
+  // Re-evaluate cookie consent banner visibility when route changes
+  if (store.cookieConsentStatus === null && newPath !== '/politique-confidentialite') {
+    showCookieConsent.value = true;
+  } else if (newPath === '/politique-confidentialite') {
+    showCookieConsent.value = false; // Hide banner if on privacy policy page
+  }
+});
+
+onMounted(() => {
+  if (store.cookieConsentStatus === null) {
+    showCookieConsent.value = true;
+  }
 });
 
 const infoWindowState = reactive({
@@ -45,6 +61,7 @@ provide('showInfo', showInfo);
       :duration="infoWindowState.duration"
       @close="infoWindowState.show = false"
     />
+    <CookieConsent :showBanner="showCookieConsent" @closeConsent="showCookieConsent = false" />
   </div>
   
 </template>

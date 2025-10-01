@@ -3,6 +3,7 @@ import { reactive } from 'vue';
 export const store = reactive({
   token: localStorage.getItem('token') || null,
   isAdmin: false,
+  cookieConsentStatus: localStorage.getItem('cookieConsent') || null,
 
   setToken(newToken) {
     this.token = newToken;
@@ -23,5 +24,15 @@ export const store = reactive({
   clearAuth() {
     this.setToken(null);
     this.setIsAdmin(false);
+  },
+
+  setCookieConsent(status) {
+    this.cookieConsentStatus = status;
+    localStorage.setItem('cookieConsent', status);
+  },
+
+  clearCookieConsent() {
+    this.cookieConsentStatus = null;
+    localStorage.removeItem('cookieConsent');
   },
 });

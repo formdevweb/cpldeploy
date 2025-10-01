@@ -9,6 +9,12 @@
 
     <div class="container mx-auto px-4 py-16 text-gray-800">
       <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg space-y-6">
+        <button @click="router.back()" class="mb-10 inline-flex items-center px-6 py-3 border border-transparent rounded-md shadow-lg text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transform hover:-translate-y-1 transition-all duration-300">
+          <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          Retour
+        </button>
         <h2 class="text-3xl font-bold text-brand-primary mb-4">1. Introduction</h2>
         <p>La présente politique de confidentialité décrit comment le Club Pongiste Libercourt collecte, utilise et protège les informations que vous nous fournissez lorsque vous utilisez notre site web.</p>
 
@@ -40,9 +46,7 @@
 </template>
 
 <script setup>
-// Pas de script spécifique pour cette page simple
-</script>
+import { useRouter } from 'vue-router';
 
-<style scoped>
-/* Styles spécifiques à la page Politique de Confidentialité si nécessaire */
-</style>
+const router = useRouter();
+</script>
