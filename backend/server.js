@@ -399,7 +399,8 @@ app.delete('/api/contacts/:id', authenticateToken, async (req, res) => {
     } catch (err) {
         console.error('Erreur lors de la suppression du message de contact :', err);
         res.status(500).json({ message: 'Erreur serveur', error: err.message });
-    }n});
+    }
+});
 
 // Démarrer le serveur
 app.listen(port, () => {

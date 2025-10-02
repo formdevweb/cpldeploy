@@ -269,11 +269,11 @@ const getOptimizedImageSrcset = (baseName) => {
   />
 </template>
 
-<style>
-.carousel__prev,
-.carousel__next {
+<style scoped>
+:deep(.carousel__prev),
+:deep(.carousel__next) {
   box-sizing: content-box;
-  background-color: #800020; /* Bordeau */
+  background-color: rgba(0, 0, 0, 0.5); /* Gris foncé semi-transparent */
   color: white;
   border-radius: 50%;
   width: 40px;
@@ -289,27 +289,27 @@ const getOptimizedImageSrcset = (baseName) => {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.carousel__prev:hover,
-.carousel__next:hover {
-  background-color: #9E1B32; /* Lighter bordeau */
+:deep(.carousel__prev:hover),
+:deep(.carousel__next:hover) {
+  background-color: rgba(0, 0, 0, 0.7); /* Gris foncé plus opaque au survol */
 }
 
-.carousel__prev {
+:deep(.carousel__prev) {
   left: 16px;
 }
 
-.carousel__next {
+:deep(.carousel__next) {
   right: 16px;
 }
 
-.carousel__pagination-button::after {
+:deep(.carousel__pagination-button::after) {
   background-color: #9ca3af; /* gray-400 color */
   border-radius: 50%;
   width: 10px;
   height: 10px;
 }
 
-.carousel__pagination-button--active::after {
+:deep(.carousel__pagination-button--active::after) {
   background-color: #ef4444; /* brand-primary color */
 }
 </style>

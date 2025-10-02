@@ -175,7 +175,7 @@ const getOptimizedImageSrcset = (baseName) => {
         <!-- Right: actions -->
         <div class="hidden items-center gap-3 lg:flex">
           
-          <RouterLink v-if="!store.isAdmin" to="/login" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 cursor-pointer">
+          <RouterLink v-if="!store.isAdmin" to="/login" class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 cursor-pointer">
               Admin
           </RouterLink>
           <button v-else @click="logout()" class="flex items-center justify-center p-3 rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer" aria-label="Déconnexion">
@@ -248,7 +248,7 @@ const getOptimizedImageSrcset = (baseName) => {
             </li>
             
             <li class="pt-8" :key="'admin-button-li'" :style="{ 'transition-delay': `${(navItems.length + 1) * 75}ms` }">
-                <RouterLink v-if="!store.isAdmin" to="/login" @click="isMenuOpen = false" class="bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md cursor-pointer">
+                <RouterLink v-if="!store.isAdmin" to="/login" @click="isMenuOpen = false" class="bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-md cursor-pointer">
                     Admin
                 </RouterLink>
                 <button v-else @click="logout()" class="flex items-center justify-center p-4 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors duration-300 shadow-md cursor-pointer w-full">
