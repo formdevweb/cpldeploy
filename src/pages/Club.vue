@@ -123,31 +123,31 @@ const getOptimizedImageSrcset = (baseName) => {
 </script>
 
 <template>
-  <section class="py-16 md:py-32 bg-gradient-to-r from-blue-500 to-teal-400 text-white">
+  <section class="py-16 md:py-32 bg-gradient-to-r from-brand-surface/80 via-brand-primary/80 to-brand-accent/80 text-white">
     <div class="container mx-auto px-4 lg:px-12 text-center">
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 lg:mb-4 tracking-tight text-yellow-400 text-shadow-sm">À propos du Club</h2>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 lg:mb-4 tracking-tight text-brand-gold text-shadow-sm">À propos du Club</h2>
       <p class="text-3xl font-medium mb-12 lg:mb-20 text-white text-shadow-sm">Club Pongiste Libercourtois - Une passion depuis 1970</p>
       <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
-        <div class="bg-orange-400 p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-orange-500">
+        <div class="bg-brand-primary p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-brand-primary/80">
           <div class="flex items-center justify-center mb-4">
             <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
           </div>
           <p class="text-4xl sm:text-5xl font-bold text-white">78</p>
           <p class="text-xl mt-2 lg:mt-4 text-white">Licenciés</p>
         </div>
-        <div class="bg-green-400 p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-green-500">
+        <div class="bg-brand-accent p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-brand-accent/80">
           <div class="flex items-center justify-center mb-4">
             <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
           </div>
           <p class="text-4xl sm:text-5xl font-bold text-white">7</p>
           <p class="text-xl mt-2 lg:mt-4 text-white">Équipes</p>
         </div>
-        <div class="bg-purple-400 p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-purple-500">
+        <div class="bg-brand-gold p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-brand-gold/80 text-brand-dark">
           <div class="flex items-center justify-center mb-4">
-            <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
           </div>
-          <p class="text-4xl sm:text-5xl font-bold text-white">55</p>
-          <p class="text-xl mt-2 lg:mt-4 text-white">Années</p>
+          <p class="text-4xl sm:text-5xl font-bold">55</p>
+          <p class="text-xl mt-2 lg:mt-4">Années</p>
         </div>
       </div>
     </div>

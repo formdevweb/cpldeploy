@@ -7,8 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-primary': '#ef4444', // Red
-        'brand-accent': '#22c55e', // Green
+        'brand-primary': 'var(--brand-primary)',
+        'brand-accent': 'var(--brand-accent)',
+        'brand-gold': 'var(--gold)',
+        'brand-neutral': 'var(--neutral)',
+        'brand-surface': 'var(--surface)',
       }
     },
   },
@@ -39,5 +42,9 @@ export default {
     'hover:bg-sky-200',
     'hover:bg-amber-200',
     'hover:bg-indigo-200',
+    'bg-gradient-to-r',
+    'from-brand-surface/80',
+    'via-brand-primary/80',
+    'to-brand-accent/80',
   ]
 }
