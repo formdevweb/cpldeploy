@@ -22,7 +22,7 @@
                 <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3 line-clamp-2">{{ newsItem.title }}</h3>
                 <p class="text-sm sm:text-base text-gray-600 line-clamp-3">{{ newsItem.description }}</p>
               </div>
-              <button @click="openNewsModal(newsItem)" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition-colors duration-300 inline-flex items-center gap-2 mt-3 sm:mt-4 mt-auto">
+              <button @click="openNewsModal(newsItem)" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition-colors duration-300 inline-flex items-center gap-2 sm:mt-4 mt-auto">
                 Lire la suite
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </button>

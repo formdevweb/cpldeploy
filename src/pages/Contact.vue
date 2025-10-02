@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
     <!-- Header -->
-    <section class="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-20">
+    <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-5xl font-extrabold mb-4 text-yellow-400 text-shadow-sm">Contactez-nous</h1>
         <p class="text-3xl text-white text-shadow-sm">Nous sommes là pour répondre à toutes vos questions.</p>
