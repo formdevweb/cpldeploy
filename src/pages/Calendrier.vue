@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
-    <section class="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-12">
+    <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 lg:mb-4 tracking-tight text-yellow-400 text-shadow-sm">Calendrier des événements</h2>
         <p class="text-xl font-medium text-white text-shadow-sm">Ne manquez aucun événement du Club Pongiste Libercourtois !</p>
@@ -14,7 +14,7 @@
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Statistiques des Événements</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <!-- Total Events Card (Clickable) -->
-          <div @click="filterStatus = 'all'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-yellow-500 cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
+          <div @click="filterStatus = 'all'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-[#F1C40F] cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
             <div class="flex items-center space-x-3">
               <div class="bg-gray-100 p-3 rounded-full">
                 <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -27,7 +27,7 @@
           </div>
 
           <!-- Open Events Card (Clickable) -->
-          <div @click="filterStatus = 'open'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-green-500 cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
+          <div @click="filterStatus = 'open'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-[#2ECC71] cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
             <div class="flex items-center space-x-3">
               <div class="bg-green-100 p-3 rounded-full">
                 <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-6H9a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2z"></path></svg>
@@ -40,13 +40,13 @@
           </div>
 
           <!-- Closed Events Card (Clickable) -->
-          <div @click="filterStatus = 'closed'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-red-500 cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
+          <div @click="filterStatus = 'closed'" class="bg-white p-5 rounded-2xl shadow-lg border-t-4 border-[#E74C3C] cursor-pointer transform hover:-translate-y-1 transition-transform duration-300 hover:shadow-xl">
             <div class="flex items-center space-x-3">
               <div class="bg-red-100 p-3 rounded-full">
                 <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
               </div>
               <div>
-                <p class="text-3xl font-bold text-red-600">{{ closedEventsCount }}</p>
+                <p class="text-3xl font-bold text-[#E74C3C]">{{ closedEventsCount }}</p>
                 <p class="text-gray-500 font-medium">Inscriptions fermées</p>
               </div>
             </div>

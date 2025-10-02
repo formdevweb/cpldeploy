@@ -130,7 +130,9 @@ onMounted(() => {
             <p class="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed line-clamp-3 flex-grow">
               {{ a.description }}
             </p>
-            <div class="mt-6 mt-auto">
+        <div
+          class="flex flex-col items-center justify-center mt-auto"
+        >
               <span
                 class="inline-flex items-center rounded-full px-4 py-1.5 text-base font-medium text-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 :class="[accents[idx % accents.length].chip]"

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-100 min-h-screen">
-    <section class="bg-gradient-to-r from-blue-500 to-teal-400 text-white py-20">
+    <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
         <h1 class="text-5xl font-extrabold mb-4 text-yellow-400 text-shadow-sm">Licenciés du Club</h1>
         <p class="text-xl">Liste des licenciés de la saison en cours</p>
