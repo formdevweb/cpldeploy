@@ -3,15 +3,15 @@
     <!-- Header -->
     <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-extrabold mb-4 text-yellow-400 text-shadow-sm">Horaires et Tarifs</h1>
-        <p class="text-3xl text-white text-shadow-sm">Découvrez nos créneaux d'entraînement et nos tarifs adaptés à tous les âges et tous les niveaux.</p>
+        <h1 class="text-5xl font-extrabold mb-6 text-yellow-400 text-shadow-sm">Horaires et Tarifs</h1>
+        <p class="text-2xl text-white text-shadow-sm">Découvrez nos créneaux d'entraînement et nos tarifs adaptés à tous les âges et tous les niveaux.</p>
       </div>
     </section>
 
     <div class="container mx-auto px-4 py-16">
       <!-- Horaires d'Entraînement -->
       <section class="mb-24 pt-16">
-        <h2 class="text-5xl font-bold text-center text-blue-600 mb-12 border-b-2 border-blue-600 pb-2 text-shadow-sm">Horaires d'Entraînement</h2>
+        <h2 class="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-12 border-b-2 border-blue-600 pb-2 text-shadow-sm">Horaires d'Entraînement</h2>
         <div class="flex justify-center gap-4 mb-8">
           <button @click="activityFilter = 'all'" :class="activityFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-800'" class="px-4 py-2 rounded-lg font-semibold shadow-md transition-all duration-300 cursor-pointer">Tous</button>
           <button @click="activityFilter = 'Libre'" :class="activityFilter === 'Libre' ? 'bg-blue-600 text-white' : 'bg-white text-gray-800'" class="px-4 py-2 rounded-lg font-semibold shadow-md transition-all duration-300 cursor-pointer">Jeu Libre</button>

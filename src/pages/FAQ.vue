@@ -3,8 +3,8 @@
     <!-- Header -->
     <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
-        <h1 class="text-5xl font-extrabold mb-4 text-yellow-400 text-shadow-sm">Questions Fréquentes</h1>
-        <p class="text-3xl text-white text-shadow-sm">Trouvez rapidement les réponses aux questions les plus courantes sur notre club.</p>
+        <h1 class="text-5xl font-extrabold mb-6 text-yellow-400 text-shadow-sm">Questions Fréquentes</h1>
+        <p class="text-2xl text-white text-shadow-sm">Trouvez rapidement les réponses aux questions les plus courantes sur notre club.</p>
       </div>
     </section>
 

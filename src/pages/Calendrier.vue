@@ -2,8 +2,8 @@
   <div class="bg-gray-100 min-h-screen">
     <section class="bg-[#36455B] text-white py-32">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 lg:mb-4 tracking-tight text-yellow-400 text-shadow-sm">Calendrier des événements</h2>
-        <p class="text-xl font-medium text-white text-shadow-sm">Ne manquez aucun événement du Club Pongiste Libercourtois !</p>
+        <h1 class="text-5xl font-extrabold mb-6 text-yellow-400 text-shadow-sm">Calendrier des événements</h1>
+        <p class="text-2xl text-white text-shadow-sm">Ne manquez aucun événement du Club Pongiste Libercourtois !</p>
       </div>
     </section>
 
