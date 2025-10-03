@@ -48,7 +48,7 @@ provide('showInfo', showInfo);
 <template>
   <div class="min-h-screen bg-brand-surface text-brand-secondary flex flex-col">
     <Navbar />
-    <main class="flex-1 pt-24">
+    <main class="flex-1 pt-20">
 
       <RouterView />
     </main>
