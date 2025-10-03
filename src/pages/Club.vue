@@ -126,7 +126,7 @@ const getOptimizedImageSrcset = (baseName) => {
   <section class="py-16 md:py-32 bg-gradient-to-r from-brand-surface/80 via-brand-primary/80 to-brand-accent/80 text-white">
     <div class="container mx-auto px-4 lg:px-12 text-center">
       <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 lg:mb-4 tracking-tight text-brand-gold text-shadow-sm">À propos du Club</h2>
-      <p class="text-3xl font-medium mb-12 lg:mb-20 text-white text-shadow-sm">Club Pongiste Libercourtois - Une passion depuis 1970</p>
+      <p class="text-xl font-medium mb-12 lg:mb-20 text-white text-shadow-sm md:text-3xl">Club Pongiste Libercourtois - Une passion depuis 1970</p>
       <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
         <div class="bg-brand-primary p-6 rounded-lg shadow-xl w-full sm:w-60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-center hover:bg-brand-primary/80">
           <div class="flex items-center justify-center mb-4">
